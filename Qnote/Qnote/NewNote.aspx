@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Qnote.Default1" ViewStateMode="Disabled" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewNote.aspx.cs" Inherits="Qnote.NewNote" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Qnote - snabba anteckningar för mobil och webb">
+    <meta name="description" content="Skriv och spara en ny anteckning vid Qnote.">
     <meta name="author" content="Robert Roos">
     <link rel="shortcut icon" href="favicon.ico">
-    <title>Qnote</title>
+    <title>Ny Anteckning</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/jumbotron.css" rel="stylesheet">
   </head>
@@ -29,8 +29,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="Default.aspx">Hem</a></li>
-            <li><a href="NewNote.aspx">Ny anteckning</a></li>          
+            <li><a href="Default.aspx">Hem</a></li>
+            <li class="active"><a href="NewNote.aspx">Ny anteckning</a></li>        
           </ul>
         </div>
       </div>
@@ -38,16 +38,42 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>Välkommen!</h1>
-        <p>Qnote hjälper dig genom att spara alla dina anteckningar direkt i molnet.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Kom igång &raquo;</a></p>
+        <h1>Ny anteckning</h1>
+        <p>Skriv din anteckning nedan.</p>
       </div>
     </div>
 
     <div class="container">
 
-        <h2>Nyheter</h2>
-        <p>Lorem Ipsum.</p>
+        <form role="form">
+        <div class="form-group">
+            <label for="noteHeader">Rubrik</label>
+            <input type="email" class="form-control" id="noteHeader" placeholder="Skriv en rubrik för anteckningen">
+          </div>
+        <div class="form-group">
+            <label for="note">Anteckning</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="note">Välj samling</label>
+            <select class="form-control">
+                <option>Kom ihåg</option>
+            </select>         
+        </div>
+        <p class="help-block">Taggar</p>
+        <div class="checkbox">          
+            <label>
+                <input type="checkbox"> Todo
+            </label>
+        </div>
+            <div class="checkbox">
+            <label>
+                <input type="checkbox"> Skola
+            </label>
+        </div>
+            <p>&nbsp;</p>
+          <p><button type="submit" class="btn btn-default">Spara</button></p>
+        </form>
 
         <hr>
 

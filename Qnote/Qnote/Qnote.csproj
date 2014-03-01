@@ -89,6 +89,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\scripts.js" />
+    <Content Include="NewNote.aspx" />
     <Content Include="robots.txt" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="NewNote.aspx.cs">
+      <DependentUpon>NewNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewNote.aspx.designer.cs">
+      <DependentUpon>NewNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
