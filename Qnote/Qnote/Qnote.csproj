@@ -62,11 +62,11 @@
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap.css.map" />
-    <Content Include="Default.asp" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -109,6 +109,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAL\DALBase.cs" />
+    <Compile Include="Models\Note.cs" />
     <Compile Include="NewNote.aspx.cs">
       <DependentUpon>NewNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\DAL\" />
     <Folder Include="pics\" />
   </ItemGroup>
   <PropertyGroup>

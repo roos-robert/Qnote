@@ -11,7 +11,26 @@ namespace Qnote
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userOnline"] != null)
+            {
+                LoginPanel.Visible = false;
+            }
 
+            if (Session["Success"] != null)
+            {
+                LoginConfirmation.Visible = true;
+                Session.Remove("Success");
+            }    
+        }
+
+        protected void LoginButton_Click(object sender, EventArgs e)
+        {
+            // The dummy form sets the sessions for trying the demo, the demo person is Ellen Nu = userID 2.
+            Session["userOnline"] = true;
+            Session["userID"] = 2;
+            Session["Success"] = true;
+
+            Response.Redirect("Default.aspx");
         }
     }
 }

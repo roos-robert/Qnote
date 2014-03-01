@@ -11,7 +11,12 @@ namespace Qnote
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // TODO - aktivera inloggning igen.
+            //if (Session["userOnline"] == null)
+            //{
+            //    NewNoteArea.Visible = false;
+            //    errorNotif.Visible = true;
+            //}
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewNote.aspx.cs" Inherits="Qnote.NewNote" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewNote.aspx.cs" Inherits="Qnote.NewNote" ViewStateMode="Disabled" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
   </head>
 
   <body>
-
+    <form id="form1" runat="server">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -43,20 +43,27 @@
       </div>
     </div>
 
-    <div class="container">
+        <div id="errorNotif" class="errorNotif" runat="server" visible="false">
+            <div class="alert alert-danger fade in">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4>Attans! Något gick snett!</h4>
+              <p>Har du verkligen loggat in?</p>
+            </div>
+        </div>
 
-        <form role="form">
+    <div id="NewNoteArea" class="container" runat="server">
+
         <div class="form-group">
             <label for="noteHeader">Rubrik</label>
-            <input type="email" class="form-control" id="noteHeader" placeholder="Skriv en rubrik för anteckningen">
-          </div>
+            <asp:TextBox ID="Header" runat="server" class="form-control" placeholder="Skriv en rubrik för anteckningen"></asp:TextBox>
+        </div>
         <div class="form-group">
             <label for="note">Anteckning</label>
-            <textarea class="form-control" rows="4"></textarea>
+            <asp:TextBox ID="Note" runat="server" class="form-control" Rows="6" TextMode="MultiLine"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="note">Välj samling</label>
-            <select class="form-control">
+            <select class="form-control" runat="server">
                 <option>Kom ihåg</option>
             </select>         
         </div>
@@ -66,14 +73,13 @@
                 <input type="checkbox"> Todo
             </label>
         </div>
-            <div class="checkbox">
+        <div class="checkbox">
             <label>
                 <input type="checkbox"> Skola
             </label>
         </div>
             <p>&nbsp;</p>
-          <p><button type="submit" class="btn btn-default">Spara</button></p>
-        </form>
+          <p><asp:Button ID="SaveButton" runat="server" class="btn btn-default" Text="Spara anteckning" /></p>
 
         <hr>
 
@@ -84,5 +90,6 @@
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    </form>
   </body>
 </html>
