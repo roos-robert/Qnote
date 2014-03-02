@@ -43,11 +43,16 @@
       </div>
     </div>
 
+        <div id="LoginConfirmation" class="alert alert-success" runat="server" visible="false">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <asp:Literal ID="SuccessLiteral" runat="server"></asp:Literal>
+        </div>
+
         <div id="errorNotif" class="errorNotif" runat="server" visible="false">
             <div class="alert alert-danger fade in">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               <h4>Attans! Något gick snett!</h4>
-              <p>Har du verkligen loggat in?</p>
+              <p><asp:Literal ID="ErrorLiteral" runat="server"></asp:Literal></p>               
             </div>
         </div>
 
@@ -79,7 +84,7 @@
             </label>
         </div>
             <p>&nbsp;</p>
-          <p><asp:Button ID="SaveButton" runat="server" class="btn btn-default" Text="Spara anteckning" /></p>
+          <p><asp:Button ID="SaveButton" runat="server" class="btn btn-default" Text="Spara anteckning" OnClick="SaveButton_Click" /></p>
 
         <hr>
 

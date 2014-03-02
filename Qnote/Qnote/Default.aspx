@@ -47,7 +47,8 @@
 
         <div id="LoginConfirmation" class="alert alert-success" runat="server" visible="false">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Du har nu loggat in!</div>
+            <asp:Literal ID="SuccessLiteral" runat="server"></asp:Literal>
+        </div>
 
         <asp:Panel ID="LoginPanel" runat="server">
             <h2>Demo</h2>

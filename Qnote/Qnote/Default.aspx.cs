@@ -19,6 +19,7 @@ namespace Qnote
             if (Session["Success"] != null)
             {
                 LoginConfirmation.Visible = true;
+                SuccessLiteral.Text = Session["Success"].ToString();
                 Session.Remove("Success");
             }    
         }
@@ -28,7 +29,7 @@ namespace Qnote
             // The dummy form sets the sessions for trying the demo, the demo person is Ellen Nu = userID 2.
             Session["userOnline"] = true;
             Session["userID"] = 2;
-            Session["Success"] = true;
+            Session["Success"] = "Du har nu loggat in!";
 
             Response.Redirect("Default.aspx");
         }
