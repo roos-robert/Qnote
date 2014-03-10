@@ -11,7 +11,20 @@ namespace Qnote.Pages.Shared
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // TODO - aktivera inloggning igen.
+            //if (Session["userOnline"] == null)
+            //{
+            //    RestrictPanel.Visible = false;
+            //    ErrorLiteral.Text = "Är du verkligen inloggad?";
+            //    errorNotif.Visible = true;
+            //}
 
+            if (Session["Success"] != null)
+            {
+                LoginConfirmation.Visible = true;
+                SuccessLiteral.Text = Session["Success"].ToString();
+                Session.Remove("Success");
+            }    
         }
     }
 }

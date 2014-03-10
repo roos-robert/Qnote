@@ -7,7 +7,7 @@ using System.Web.Configuration;
 
 namespace Qnote.Models.DAL
 {
-    public class DALBase
+    public abstract class DALBase
     {
         private static string connectionString;
 
@@ -21,7 +21,7 @@ namespace Qnote.Models.DAL
         // Initierar connectionString genom att hämta anslutningssträngen från Web.config.
         static DALBase()
         {
-            connectionString = WebConfigurationManager.ConnectionStrings["CustomerConnectionString"].ConnectionString;
+            connectionString = WebConfigurationManager.ConnectionStrings["QnoteConnectionString"].ConnectionString;
         }
     }
 }

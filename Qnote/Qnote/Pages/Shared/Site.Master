@@ -33,21 +33,36 @@
           <ul class="nav navbar-nav">
             <li><a href='<%$ RouteUrl:routename=NewNote %>' id="NewNoteLink" runat="server">Ny anteckning</a></li>
             <li><a href='<%$ RouteUrl:routename=AllNotes %>' id="A1" runat="server">Dina anteckningar</a></li>
+            <li><a href='<%$ RouteUrl:routename=About %>' id="A2" runat="server">Om</a></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="jumbotron">
-      <div class="container">
-        <asp:ContentPlaceHolder ID="JumbotronContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
-      </div>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="JumbotronContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </div>
 
     <div class="container">
-        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
+        <div id="LoginConfirmation" class="alert alert-success" runat="server" visible="false">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <asp:Literal ID="SuccessLiteral" runat="server"></asp:Literal>
+        </div>
+        <div id="errorNotif" class="errorNotif" runat="server" visible="false">
+            <div class="alert alert-danger fade in">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4>Attans! Något gick snett!</h4>
+                <p><asp:Literal ID="ErrorLiteral" runat="server"></asp:Literal></p>               
+            </div>
+        </div>
+
+        <asp:Panel ID="RestrictPanel" runat="server">
+            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </asp:Panel>
 
         <hr>
         <footer>

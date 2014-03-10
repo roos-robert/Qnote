@@ -11,27 +11,14 @@ namespace Qnote.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // TODO - aktivera inloggning igen.
-            //if (Session["userOnline"] == null)
-            //{
-            //    NewNoteArea.Visible = false;
-            //    ErrorLiteral.Text = "Är du verkligen inloggad?"
-            //    errorNotif.Visible = true;
-            //}
-
-            if (Session["Success"] != null)
-            {
-                LoginConfirmation.Visible = true;
-                SuccessLiteral.Text = Session["Success"].ToString();
-                Session.Remove("Success");
-            } 
+            
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             Session["Success"] = "Anteckningen har nu sparats!";
 
-            Response.Redirect("NewNote.aspx");
+            Response.RedirectToRoute("NewNote");
             Context.ApplicationInstance.CompleteRequest();
         }
     }

@@ -10,19 +10,6 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <div id="LoginConfirmation" class="alert alert-success" runat="server" visible="false">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <asp:Literal ID="SuccessLiteral" runat="server"></asp:Literal>
-    </div>
-
-    <div id="errorNotif" class="errorNotif" runat="server" visible="false">
-        <div class="alert alert-danger fade in">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4>Attans! Något gick snett!</h4>
-            <p><asp:Literal ID="ErrorLiteral" runat="server"></asp:Literal></p>               
-        </div>
-    </div>
-
     <div class="form-group">
         <label for="noteHeader">Rubrik</label>
         <asp:TextBox ID="Header" runat="server" class="form-control" placeholder="Skriv en rubrik för anteckningen"></asp:TextBox>

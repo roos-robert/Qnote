@@ -10,11 +10,6 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <div id="LoginConfirmation" class="alert alert-success" runat="server" visible="false">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <asp:Literal ID="SuccessLiteral" runat="server"></asp:Literal>
-    </div>
-
     <asp:Panel ID="LoginPanel" runat="server">
         <h2>Demo</h2>
         <p>Logga in nedan för ett demo av Qnote.</p>

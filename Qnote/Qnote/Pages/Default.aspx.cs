@@ -15,13 +15,6 @@ namespace Qnote.Pages
             {
                 LoginPanel.Visible = false;
             }
-
-            if (Session["Success"] != null)
-            {
-                LoginConfirmation.Visible = true;
-                SuccessLiteral.Text = Session["Success"].ToString();
-                Session.Remove("Success");
-            }    
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)
@@ -31,7 +24,7 @@ namespace Qnote.Pages
             Session["userID"] = 2;
             Session["Success"] = "Du har nu loggat in!";
 
-            Response.Redirect("Default.aspx");
+            Response.RedirectToRoute("Default");
             Context.ApplicationInstance.CompleteRequest();
         }
     }
