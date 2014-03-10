@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Qnote
+namespace Qnote.Pages
 {
     public partial class NewNote : System.Web.UI.Page
     {
@@ -32,6 +32,7 @@ namespace Qnote
             Session["Success"] = "Anteckningen har nu sparats!";
 
             Response.Redirect("NewNote.aspx");
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }
