@@ -27,12 +27,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="Default.aspx">Qnote</a>
+          <a runat="server" class="navbar-brand" href='<%$ RouteUrl:routename=Default %>'>Qnote</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="~/Pages/Default.aspx" id="HomeLink" runat="server">Hem</a></li>
-            <li><a href="~/Pages/NewNote.aspx" id="NewNoteLink" runat="server">Ny anteckning</a></li>
+            <li><a href='<%$ RouteUrl:routename=NewNote %>' id="NewNoteLink" runat="server">Ny anteckning</a></li>
+            <li><a href='<%$ RouteUrl:routename=AllNotes %>' id="A1" runat="server">Dina anteckningar</a></li>
           </ul>
         </div>
       </div>
