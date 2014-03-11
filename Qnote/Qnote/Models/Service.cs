@@ -49,5 +49,20 @@ namespace Qnote.Models
             return CollectionDAL.GetCollectionByNoteID(NoteID);
         }
         #endregion
+
+        #region CollectionName R
+        // Init of the CollectionNameDAL
+        private CollectionNameDAL _collectionNameDAL;
+        private CollectionNameDAL CollectionNameDAL
+        {
+            get { return _collectionNameDAL ?? (_collectionNameDAL = new CollectionNameDAL()); }
+        }
+
+        // Gets collection name
+        public CollectionName GetCollectionName(int CollectionNameID)
+        {
+            return CollectionNameDAL.GetCollectionNameByID(CollectionNameID);
+        }
+        #endregion
     }
 }

@@ -26,7 +26,7 @@ namespace Qnote.Models.DAL
                     {
                         // Figures out the index of the DB-columns.
                         var collectionNameIdIndex = reader.GetOrdinal("CollectionNameID");
-                        var collectionNameIndex = reader.GetOrdinal("CollectionName");
+                        var collectionNameIndex = reader.GetOrdinal("Collection");
 
                         // If a post matching my parameter exists, an object containing the data will be created.
                         if (reader.Read())

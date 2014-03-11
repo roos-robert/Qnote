@@ -9,7 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <asp:ListView ID="QnoteListView" runat="server" ItemType="Qnote.Models.Qnote" SelectMethod="QnoteListView_GetData" DataKeyNames="NoteID">
+    <asp:ListView ID="QnoteListView" runat="server" ItemType="Qnote.Models.QnoteCollection" SelectMethod="QnoteListView_GetData" DataKeyNames="NoteID">
         <LayoutTemplate>     
             <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
         </LayoutTemplate>
@@ -18,6 +18,7 @@
             <h4><%#: Item.Header %></h4>
             <p class="small"><%#: Item.Date %></p>
             <p><%#: Item.Note %></p>
+            <p class="small"><strong>Kategori: </strong><%#: Item.CollectionNameText %></p>
             <p>&nbsp;</p>    
         </ItemTemplate>
         <EmptyDataTemplate>
