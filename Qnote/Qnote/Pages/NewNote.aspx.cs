@@ -19,7 +19,6 @@ namespace Qnote.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         public IEnumerable<CollectionName> DropDownListCollection_GetData()
@@ -36,14 +35,14 @@ namespace Qnote.Pages
             }          
         }
 
-        public void FormViewNewNote_InsertItem(Models.Qnote qnote)
+        public void FormViewNewNote_InsertItem(Models.QnoteCollectionID qnoteCollectionID)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     // Saves the note.
-                    Service.CreateNote(qnote);
+                    Service.CreateNoteAndCollection(qnoteCollectionID);
 
                     // Sets the confirm-message and redirects to the notelist.
                     Session["Success"] = "Anteckningen har nu sparats!";

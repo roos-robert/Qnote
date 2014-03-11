@@ -119,6 +119,7 @@
     <Compile Include="Models\DAL\NoteDAL.cs" />
     <Compile Include="Models\Qnote.cs" />
     <Compile Include="Models\QnoteCollection.cs" />
+    <Compile Include="Models\QnoteCollectionID.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

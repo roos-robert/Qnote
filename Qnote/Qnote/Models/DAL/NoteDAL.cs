@@ -106,19 +106,20 @@ namespace Qnote.Models.DAL
         }
 
         // Creates a new note.
-        public void CreateNote(Qnote qnote)
+        public void CreateNoteAndCollection(QnoteCollectionID qnoteCollectionID)
         {
             using (var conn = CreateConnection())
             {
                 try
                 {
-                    var cmd = new SqlCommand("app.usp_CreateNote", conn);
+                    var cmd = new SqlCommand("app.usp_CreateNoteAndCollection", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Here im creating the parameters that will be used.
-                    cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnote.Header;
-                    cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnote.Note;
-                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
+                    cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnoteCollectionID.Header;
+                    cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnoteCollectionID.Note;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnoteCollectionID.UserID;
+                    cmd.Parameters.Add("@CollectionNameID", SqlDbType.Int, 4).Value = qnoteCollectionID.CollectionNameID;
 
                     // This parameter retrieves the ID of the post just inserted.
                     //cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
@@ -131,7 +132,7 @@ namespace Qnote.Models.DAL
                 }
                 catch
                 {
-                    throw new ApplicationException("An error occured when trying to add a note to the database.");
+                    throw new ApplicationException("An error occured when trying to add a note connected to a collection to the database.");
                 }
             }
         }

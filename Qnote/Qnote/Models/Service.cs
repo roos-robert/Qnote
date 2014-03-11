@@ -18,23 +18,23 @@ namespace Qnote.Models
         }
 
         // Creates or updates a note.
-        public void CreateNote(Qnote qnote)
+        public void CreateNoteAndCollection(QnoteCollectionID qnoteCollectionID)
         {
             ICollection<ValidationResult> validationResults;
-            if (!qnote.Validate(out validationResults))
+            if (!qnoteCollectionID.Validate(out validationResults))
             {
                 var ex = new ValidationException("The Qnote object did not pass the data validation!");
                 ex.Data.Add("ValidationResults", validationResults);
                 throw ex;
             }
 
-            if (qnote.NoteID == 0)
+            if (qnoteCollectionID.NoteID == 0)
             {
-                NoteDAL.CreateNote(qnote);
+                NoteDAL.CreateNoteAndCollection(qnoteCollectionID);
             }
             else
             {
-                NoteDAL.UpdateNote(qnote);
+                //NoteDAL.UpdateNoteAndCollection(qnoteCollectionID);
             }
         }
 
