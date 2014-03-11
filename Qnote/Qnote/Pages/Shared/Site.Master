@@ -32,8 +32,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href='<%$ RouteUrl:routename=NewNote %>' id="NewNoteLink" runat="server">Ny anteckning</a></li>
-            <li><a href='<%$ RouteUrl:routename=AllNotes %>' id="A1" runat="server">Dina anteckningar</a></li>
-            <li><a href='<%$ RouteUrl:routename=About %>' id="A2" runat="server">Om</a></li>
+            <li><a href='<%$ RouteUrl:routename=AllNotes %>' id="AllNotesLink" runat="server">Dina anteckningar</a></li>
+            <li><a href='<%$ RouteUrl:routename=About %>' id="AboutLink" runat="server">Om</a></li>
           </ul>
         </div>
       </div>

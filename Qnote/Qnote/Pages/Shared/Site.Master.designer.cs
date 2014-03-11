@@ -40,22 +40,22 @@ namespace Qnote.Pages.Shared {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor NewNoteLink;
         
         /// <summary>
-        /// A1 control.
+        /// AllNotesLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AllNotesLink;
         
         /// <summary>
-        /// A2 control.
+        /// AboutLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AboutLink;
         
         /// <summary>
         /// JumbotronContentPlaceHolder control.

@@ -31,7 +31,8 @@
             <%-- Template for each row in the database. --%>
             <h4><%#: Item.Header %></h4>
             <p class="small"><%#: Item.Date %></p>
-            <p><%#: Item.Note %></p>    
+            <p><%#: Item.Note %></p>
+            <p><asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("SingleNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Redigera" /></p>    
             <p>&nbsp;</p>    
         </ItemTemplate>
         <EmptyDataTemplate>

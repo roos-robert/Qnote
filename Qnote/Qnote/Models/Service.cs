@@ -15,10 +15,16 @@ namespace Qnote.Models
             get { return _noteDAL ?? (_noteDAL = new NoteDAL()); }
         }
 
-        // Hämtar alla kontakter.
+        // Gets all notes.
         public IEnumerable<Qnote> GetNotes()
         {
             return NoteDAL.GetNotes();
+        }
+
+        // Gets specific note.
+        public Qnote GetNote(int NoteID)
+        {
+            return NoteDAL.GetNoteByID(NoteID);
         }
     }
 }
