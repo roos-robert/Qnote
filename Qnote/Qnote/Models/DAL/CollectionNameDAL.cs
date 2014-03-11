@@ -9,6 +9,47 @@ namespace Qnote.Models.DAL
 {
     public class CollectionNameDAL : DALBase
     {
+        // Retrives all collectionnames
+        public IEnumerable<CollectionName> GetCollectionNames()
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var collectionNames = new List<CollectionName>(25);
+
+                    var cmd = new SqlCommand("app.usp_GetCollectionNames", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    conn.Open();
+
+                    // Creates references to the data from the database.
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        // Figures out the index of the DB-columns.
+                        var collectionNameIdIndex = reader.GetOrdinal("CollectionNameID");
+                        var collectionIndex = reader.GetOrdinal("Collection");
+
+                        while (reader.Read())
+                        {
+                            collectionNames.Add(new CollectionName
+                            {
+                                CollectionNameID = reader.GetInt32(collectionNameIdIndex),
+                                CollectionNameText = reader.GetString(collectionIndex),
+                            });
+                        }
+                    }
+
+                    collectionNames.TrimExcess();
+                    return collectionNames;
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to access and get data from database.");
+                }
+            }
+        }
+
         // Retrives what name a collection has.
         public CollectionName GetCollectionNameByID(int CollectionNameID)
         {

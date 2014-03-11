@@ -121,13 +121,13 @@ namespace Qnote.Models.DAL
                     cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
 
                     // This parameter retrieves the ID of the post just inserted.
-                    cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
+                    //cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
                     // Retrives the NoteID and adds it to the object.
-                    qnote.NoteID = (int)cmd.Parameters["@ContactID"].Value;
+                    //qnote.NoteID = (int)cmd.Parameters["@ContactID"].Value;
                 }
                 catch
                 {

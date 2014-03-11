@@ -10,42 +10,29 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <asp:ValidationSummary runat="server" CssClass="validation-summary-errors" />
-    <div class="form-group">
-        <label for="noteHeader">Rubrik</label>
-        <asp:TextBox ID="Header" runat="server" class="form-control" placeholder="Skriv en rubrik för anteckningen"></asp:TextBox>
-    </div>
-    <div class="form-group">
-        <label for="note">Anteckning</label>
-        <asp:TextBox ID="Note" runat="server" class="form-control" Rows="6" TextMode="MultiLine"></asp:TextBox>
-    </div>
-    <div class="form-group">
-        <label for="note">Välj samling</label>
-            <select class="form-control" runat="server">
-                <option>Kom ihåg</option>
-            </select>         
-    </div>
-    <p class="help-block">Taggar</p>
-    <div class="checkbox">          
-        <label>
-            <input type="checkbox"> Todo
-        </label>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox"> Skola
-        </label>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox"> Programmering
-        </label>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox"> Politik
-        </label>
-    </div>
-    <p>&nbsp;</p>
-    <p><asp:Button ID="SaveButton" runat="server" class="btn btn-default" Text="Spara anteckning" OnClick="SaveButton_Click" /></p>
+    <asp:ValidationSummary runat="server" CssClass="validation-summary-error" />
+    
+    <asp:FormView ID="FormViewNewNote" runat="server" ItemType="Qnote.Models.Qnote" InsertMethod="FormViewNewNote_InsertItem" DefaultMode="Insert" RenderOuterTable="false">
+        <InsertItemTemplate>
+            <div class="form-group">
+                <label for="noteHeader">Rubrik</label>
+                <asp:TextBox ID="HeaderTextBox" runat="server" class="form-control" placeholder="Skriv en rubrik för anteckningen" Text='<%# BindItem.Header %>'></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="note">Anteckning</label>
+                <asp:TextBox ID="NoteTextBox" runat="server" class="form-control" Rows="6" TextMode="MultiLine" Text='<%# BindItem.Note %>'></asp:TextBox>
+                <asp:TextBox ID="UserIDTextBox" runat="server" CssClass="hidden" Rows="6" Text='<%# BindItem.UserID %>'>1</asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="note">Välj samling</label>
+                <asp:DropDownList ID="DropDownListCollection" runat="server" CssClass="form-control" 
+                    SelectMethod="DropDownListCollection_GetData" ItemType="Qnote.Models.CollectionName" 
+                    DataTextField="CollectionNameText" DataValueField="CollectionNameID">
+                </asp:DropDownList>        
+            </div>
+            
+            <p>&nbsp;</p>
+            <p><asp:Button ID="SaveButton" runat="server" class="btn btn-default" Text="Spara anteckning" CommandName="Insert" /></p>
+        </InsertItemTemplate>
+    </asp:FormView>  
 </asp:Content>

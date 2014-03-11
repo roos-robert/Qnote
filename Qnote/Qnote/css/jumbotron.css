@@ -3,3 +3,23 @@ body {
   padding-top: 30px;
   padding-bottom: 20px;
 }
+
+.fullwidth {
+    width: 100%;
+}
+
+.field-validation-error {
+    color: red;
+    font-size: 10pt;
+}
+
+.validation-summary-error {
+    color: red;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.hideField {
+    display: none;
+}

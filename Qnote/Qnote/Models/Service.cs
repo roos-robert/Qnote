@@ -18,7 +18,7 @@ namespace Qnote.Models
         }
 
         // Creates or updates a note.
-        public void SaveContact(Qnote qnote)
+        public void CreateNote(Qnote qnote)
         {
             ICollection<ValidationResult> validationResults;
             if (!qnote.Validate(out validationResults))
@@ -73,6 +73,7 @@ namespace Qnote.Models
         #endregion
 
         #region CollectionName R
+
         // Init of the CollectionNameDAL
         private CollectionNameDAL _collectionNameDAL;
         private CollectionNameDAL CollectionNameDAL
@@ -85,6 +86,13 @@ namespace Qnote.Models
         {
             return CollectionNameDAL.GetCollectionNameByID(CollectionNameID);
         }
+
+        // Gets all collectionnames.
+        public IEnumerable<CollectionName> GetCollectionNames()
+        {
+            return CollectionNameDAL.GetCollectionNames();
+        }
+
         #endregion
     }
 }
