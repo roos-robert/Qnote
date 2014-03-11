@@ -45,5 +45,11 @@ namespace Qnote.Pages
                 ModelState.AddModelError(String.Empty, "Ett fel inträffade då anteckningen skulle raderas.");
             }
         }
+
+        protected void LinkButtonCancel_Click(object sender, EventArgs e)
+        {
+            Response.RedirectToRoute("AllNotes");
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }

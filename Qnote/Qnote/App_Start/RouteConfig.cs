@@ -15,6 +15,7 @@ namespace Qnote
             routes.MapPageRoute("AllNotes", "notes/all", "~/Pages/AllNotes.aspx");
             routes.MapPageRoute("SingleNote", "notes/{id}/{header}", "~/Pages/SingleNote.aspx");
             routes.MapPageRoute("DeleteNote", "notes/delete/{id}/{header}", "~/Pages/DeleteNote.aspx");
+            routes.MapPageRoute("Collections", "collections", "~/Pages/Collections.aspx");
             routes.MapPageRoute("About", "about", "~/Pages/About.aspx");
         }
     }

@@ -23,9 +23,30 @@ namespace Qnote.Pages
 
         }
 
-        public IEnumerable<Models.Qnote> QnoteListView_GetData()
+        public IEnumerable<QnoteCollection> QnoteListView_GetData()
         {
-            return Service.GetNotes();
+            try
+            {
+                // Here i get all notes and put them in "qnote" then get the collection for the note, and the name for the collection.
+                // After that i throw all the info into a new QnoteCollection object and return that to the listview.
+                IEnumerable<QnoteCollection> participants = from qnote in Service.GetNotes()
+                                                            let collection = Service.GetCollection(qnote.NoteID)
+                                                            let collectionName = Service.GetCollectionName(collection.CollectionNameID)
+                                                            select new QnoteCollection
+                                                            {
+                                                                NoteID = qnote.NoteID,
+                                                                Header = qnote.Header,
+                                                                Note = qnote.Note,
+                                                                Date = qnote.Date,
+                                                                CollectionNameText = collectionName.CollectionNameText
+                                                            }; 
+                return participants;
+            }
+            catch (Exception)
+            {
+                // TODO Implement UI error-handling.
+                throw new ApplicationException("Inga anteckningar att lista.");
+            }  
         }
     }
 }

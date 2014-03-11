@@ -68,6 +68,7 @@
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AllNotes.aspx" />
+    <Content Include="Pages\Collections.aspx" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\DeleteNote.aspx" />
     <Content Include="Pages\NewNote.aspx" />
@@ -132,6 +133,13 @@
     </Compile>
     <Compile Include="Pages\AllNotes.aspx.designer.cs">
       <DependentUpon>AllNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Collections.aspx.cs">
+      <DependentUpon>Collections.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Collections.aspx.designer.cs">
+      <DependentUpon>Collections.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -23,14 +23,14 @@
         </div>
     </div>
 
-    <asp:ListView ID="QnoteListView" runat="server" ItemType="Qnote.Models.Qnote" SelectMethod="QnoteListView_GetData" DataKeyNames="NoteID">
+    <asp:ListView ID="QnoteListView" runat="server" ItemType="Qnote.Models.QnoteCollection" SelectMethod="QnoteListView_GetData" DataKeyNames="NoteID">
         <LayoutTemplate>     
             <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
         </LayoutTemplate>
         <ItemTemplate>
             <%-- Template for each row in the database. --%>
             <h4><%#: Item.Header %></h4>
-            <p class="small"><%#: Item.Date %></p>
+            <p class="small"><%#: Item.Date %> - <%#: Item.CollectionNameText %></p>
             <p><%#: Item.Note %></p>
             <p>
                 <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("SingleNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Uppdatera" /> - 
