@@ -105,6 +105,63 @@ namespace Qnote.Models.DAL
             }
         }
 
+        // Creates a new note.
+        public void CreateNote(Qnote qnote)
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("app.usp_CreateNote", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Here im creating the parameters that will be used.
+                    cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnote.Header;
+                    cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnote.Note;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
+
+                    // This parameter retrieves the ID of the post just inserted.
+                    cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    // Retrives the NoteID and adds it to the object.
+                    qnote.NoteID = (int)cmd.Parameters["@ContactID"].Value;
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to add a note to the database.");
+                }
+            }
+        }
+
+        // Updates a existing note.
+        public void UpdateNote(Qnote qnote)
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("app.usp_UpdateNote", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Here im creating the parameters that will be used.
+                    cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Value = qnote.NoteID;
+                    cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnote.Header;
+                    cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnote.Note;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to update a note.");
+                }
+            }
+        }
+
         // Deletes a note
         public void DeleteNote(int NoteID)
         {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="SingleNote" Language="C#" MasterPageFile="~/Pages/Shared/Site.Master" AutoEventWireup="true" CodeBehind="SingleNote.aspx.cs" Inherits="Qnote.Pages.SingleNote" %>
+﻿<%@ Page Title="Visar anteckning" Language="C#" MasterPageFile="~/Pages/Shared/Site.Master" AutoEventWireup="true" CodeBehind="SingleNote.aspx.cs" Inherits="Qnote.Pages.SingleNote" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="description" content="Listar en medlems specifika anteckning.">

@@ -10,6 +10,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <asp:ValidationSummary runat="server" CssClass="validation-summary-errors" />
     <div class="form-group">
         <label for="noteHeader">Rubrik</label>
         <asp:TextBox ID="Header" runat="server" class="form-control" placeholder="Skriv en rubrik för anteckningen"></asp:TextBox>

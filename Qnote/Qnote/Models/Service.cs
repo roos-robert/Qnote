@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Qnote.Models.DAL;
+using System.ComponentModel.DataAnnotations;
 
 namespace Qnote.Models
 {
@@ -14,6 +15,27 @@ namespace Qnote.Models
         private NoteDAL NoteDAL
         {
             get { return _noteDAL ?? (_noteDAL = new NoteDAL()); }
+        }
+
+        // Creates or updates a note.
+        public void SaveContact(Qnote qnote)
+        {
+            ICollection<ValidationResult> validationResults;
+            if (!qnote.Validate(out validationResults))
+            {
+                var ex = new ValidationException("The Qnote object did not pass the data validation!");
+                ex.Data.Add("ValidationResults", validationResults);
+                throw ex;
+            }
+
+            if (qnote.NoteID == 0)
+            {
+                NoteDAL.CreateNote(qnote);
+            }
+            else
+            {
+                NoteDAL.UpdateNote(qnote);
+            }
         }
 
         // Gets all notes.
