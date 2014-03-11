@@ -13,6 +13,6 @@ namespace Qnote.Models
         // Validation with data annotations of text beeing entered.
         [Required(ErrorMessage = "En samling måste anges.")]
         [StringLength(60)]
-        public string Collection { get; set; }
+        public string CollectionNameText { get; set; }
     }
 }

@@ -80,7 +80,7 @@ namespace Qnote.Models.DAL
                         var dateIndex = reader.GetOrdinal("Date");
                         var userIdIndex = reader.GetOrdinal("UserID");
 
-                        // Eftersom jag bara vill läsa ut en post, körs en if-sats om något finns att läsas ur databasen.
+                        // If a post matching my parameter exists, an object containing the data will be created.
                         if (reader.Read())
                         {
                             return new Qnote

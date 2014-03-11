@@ -72,6 +72,7 @@
     <Content Include="Pages\DeleteNote.aspx" />
     <Content Include="Pages\NewNote.aspx" />
     <Content Include="Pages\Shared\Site.Master" />
+    <None Include="Properties\PublishProfiles\Qnote.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,6 +112,8 @@
     </Compile>
     <Compile Include="Models\Collection.cs" />
     <Compile Include="Models\CollectionName.cs" />
+    <Compile Include="Models\DAL\CollectionDAL.cs" />
+    <Compile Include="Models\DAL\CollectionNameDAL.cs" />
     <Compile Include="Models\DAL\DALBase.cs" />
     <Compile Include="Models\DAL\NoteDAL.cs" />
     <Compile Include="Models\Qnote.cs" />

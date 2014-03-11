@@ -8,8 +8,9 @@ namespace Qnote.Models
 {
     public class Service
     {
+        #region Note CRUD
+        // Init of the NoteDAL
         private NoteDAL _noteDAL;
-
         private NoteDAL NoteDAL
         {
             get { return _noteDAL ?? (_noteDAL = new NoteDAL()); }
@@ -32,5 +33,21 @@ namespace Qnote.Models
         {
             NoteDAL.DeleteNote(NoteID);
         }
+        #endregion
+
+        #region Collection CRUD
+        // Init of the CollectionDAL
+        private CollectionDAL _collectionDAL;
+        private CollectionDAL CollectionDAL
+        {
+            get { return _collectionDAL ?? (_collectionDAL = new CollectionDAL()); }
+        }
+
+        // Gets collection data for a specific note.
+        public Collection GetCollection(int NoteID)
+        {
+            return CollectionDAL.GetCollectionByNoteID(NoteID);
+        }
+        #endregion
     }
 }
