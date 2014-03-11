@@ -26,5 +26,11 @@ namespace Qnote.Models
         {
             return NoteDAL.GetNoteByID(NoteID);
         }
+
+        // Deletes specific note.
+        public void DeleteNote(int NoteID)
+        {
+            NoteDAL.DeleteNote(NoteID);
+        }
     }
 }

@@ -6,8 +6,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="JumbotronContentPlaceHolder" runat="server">
     <h1><asp:Literal ID="HeaderLitteral" runat="server"></asp:Literal></h1>
-    
-    <p></p>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">

@@ -32,7 +32,10 @@
             <h4><%#: Item.Header %></h4>
             <p class="small"><%#: Item.Date %></p>
             <p><%#: Item.Note %></p>
-            <p><asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("SingleNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Redigera" /></p>    
+            <p>
+                <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("SingleNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Uppdatera" /> - 
+                <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("DeleteNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Radera" />
+            </p>    
             <p>&nbsp;</p>    
         </ItemTemplate>
         <EmptyDataTemplate>

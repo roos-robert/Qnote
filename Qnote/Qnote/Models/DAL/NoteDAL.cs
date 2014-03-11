@@ -104,5 +104,27 @@ namespace Qnote.Models.DAL
                 }
             }
         }
+
+        // Deletes a note
+        public void DeleteNote(int NoteID)
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("app.usp_DeleteNote", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Value = NoteID;
+
+                    conn.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to remove data from the database.");
+                }
+            }
+        }
     }
 }
