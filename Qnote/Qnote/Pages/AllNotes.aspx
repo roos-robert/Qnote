@@ -33,7 +33,7 @@
             <p class="small"><%#: Item.Date %> - <%#: Item.CollectionNameText %></p>
             <p><%#: Item.Note %></p>
             <p>
-                <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("SingleNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Uppdatera" /> - 
+                <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("SingleNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Visa anteckning" /> - 
                 <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("DeleteNote", new { id = Item.NoteID, header = Item.Header })  %>' Text="Radera" />
             </p>    
             <p>&nbsp;</p>    

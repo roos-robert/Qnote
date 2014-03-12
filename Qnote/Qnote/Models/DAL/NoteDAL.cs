@@ -138,7 +138,7 @@ namespace Qnote.Models.DAL
         }
 
         // Updates a existing note.
-        public void UpdateNote(Qnote qnote)
+        public void UpdateNoteAndCollection(QnoteCollectionID qnote)
         {
             using (var conn = CreateConnection())
             {
@@ -147,11 +147,11 @@ namespace Qnote.Models.DAL
                     var cmd = new SqlCommand("app.usp_UpdateNote", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Here im creating the parameters that will be used.
-                    cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Value = qnote.NoteID;
+                    // Here im creating the parameters that will be used.                   
                     cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnote.Header;
                     cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnote.Note;
-                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
+                    cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Value = qnote.NoteID;
+                    //cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

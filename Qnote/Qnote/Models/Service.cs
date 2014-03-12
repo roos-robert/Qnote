@@ -34,7 +34,7 @@ namespace Qnote.Models
             }
             else
             {
-                //NoteDAL.UpdateNoteAndCollection(qnoteCollectionID);
+                NoteDAL.UpdateNoteAndCollection(qnoteCollectionID);
             }
         }
 

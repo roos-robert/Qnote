@@ -10,7 +10,6 @@ namespace Qnote.Pages
 {
     public partial class AllNotes : System.Web.UI.Page
     {
-
         private Service _service;
 
         private Service Service
