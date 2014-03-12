@@ -18,7 +18,7 @@
             <h4><%#: Item.Header %></h4>
             <p class="small"><%#: Item.Date %></p>
             <p><%#: Item.Note %></p>
-            <p class="small"><strong>Kategori: </strong><%#: Item.CollectionNameText %></p>
+            <p class="small"><strong>Samling: </strong><%#: Item.CollectionNameText %></p>
             <p>&nbsp;</p>
             <p><asp:LinkButton ID="LinkButtonEditNote" runat="server" class="btn btn-primary" OnClick="LinkButtonEditNote_Click">Redigera anteckning</asp:LinkButton></p>    
         </ItemTemplate>
