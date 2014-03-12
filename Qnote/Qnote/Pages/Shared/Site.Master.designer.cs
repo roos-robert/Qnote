@@ -112,6 +112,15 @@ namespace Qnote.Pages.Shared {
         protected global::System.Web.UI.WebControls.Literal ErrorLiteral;
         
         /// <summary>
+        /// LoginContentPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder LoginContentPlaceHolder;
+        
+        /// <summary>
         /// RestrictPanel control.
         /// </summary>
         /// <remarks>

@@ -97,6 +97,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\scripts.js" />
     <Content Include="Pages\SingleNote.aspx" />
+    <Content Include="Pages\UpdateNote.aspx" />
     <Content Include="robots.txt" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -176,6 +177,13 @@
     </Compile>
     <Compile Include="Pages\SingleNote.aspx.designer.cs">
       <DependentUpon>SingleNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateNote.aspx.cs">
+      <DependentUpon>UpdateNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdateNote.aspx.designer.cs">
+      <DependentUpon>UpdateNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

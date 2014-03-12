@@ -64,5 +64,11 @@ namespace Qnote.Pages
                 throw new ApplicationException("Anteckningen finns inte.");
             }         
         }
+
+        protected void LinkButtonEditNote_Click(object sender, EventArgs e)
+        {
+            Response.RedirectToRoute("UpdateNote");
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }

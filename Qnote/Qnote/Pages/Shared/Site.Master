@@ -60,6 +60,9 @@
             </div>
         </div>
 
+            <asp:ContentPlaceHolder ID="LoginContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+
         <asp:Panel ID="RestrictPanel" runat="server">
             <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
