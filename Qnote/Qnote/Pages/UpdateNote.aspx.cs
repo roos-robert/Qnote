@@ -28,7 +28,7 @@ namespace Qnote.Pages
             {
                 // Here i get all notes and put them in "qnote" then get the collection for the note, and the name for the collection.
                 // After that i throw all the info into a new QnoteCollection object and return that to the listview.
-                IEnumerable<QnoteCollectionID> participants = from qnote in Service.GetNotes()
+                IEnumerable<QnoteCollectionID> participants = from qnote in Service.GetNotes(Int32.Parse(Session["userID"].ToString()))
                                                             let collection = Service.GetCollection(qnote.NoteID)
                                                             let collectionName = Service.GetCollectionName(collection.CollectionNameID)
                                                             select new QnoteCollectionID
@@ -42,8 +42,9 @@ namespace Qnote.Pages
             }
             catch (Exception)
             {
-                // TODO Implement UI error-handling.
-                throw new ApplicationException("Inga anteckningar att lista.");
+                // If something goes wrong, ModelState saves the day by presenting a error that the user can DO NOTHING ABOUT muahaha.
+                ModelState.AddModelError("", "Går inte att hämta anteckningens data då denna inte existerar.");
+                return null;
             }
         }
 

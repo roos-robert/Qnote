@@ -6,7 +6,7 @@ using System.Web;
 
 public static class MyValidationExtension
 {
-    // Utökning av klassen objekt för direktvalidering
+    // This is an extension to the object class, so i can directly validate recieved data, nice!
     public static bool Validate(this object instance, out ICollection<ValidationResult> validationResults)
     {
         var validationContext = new ValidationContext(instance);

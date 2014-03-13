@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Qnote.Models
 {
+    // This is a class for handling all the interaction between the presentation layers and the data layers. Beautiful aint it?
     public class Service
     {
         #region Note CRUD
@@ -39,9 +40,9 @@ namespace Qnote.Models
         }
 
         // Gets all notes.
-        public IEnumerable<Qnote> GetNotes()
+        public IEnumerable<Qnote> GetNotes(int UserID)
         {
-            return NoteDAL.GetNotes();
+            return NoteDAL.GetNotes(UserID);
         }
 
         // Gets specific note.

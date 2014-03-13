@@ -1,7 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Qnote.Pages.Shared.Site" ViewStateMode="Disabled" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteOpen.master.cs" Inherits="Qnote.Pages.Shared.SiteOpen" ViewStateMode="Disabled" %>
 
-<%-- This MasterPage is used when showing content that requires the user to log in, for example pages that retrieves the users notes, based on the session
-     containing the userid. --%>
+<%-- This MasterPage is used when showing content that do not require the user to log in. For example, general pages such as "About". --%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,10 +65,8 @@
             <asp:ContentPlaceHolder ID="LoginContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
 
-        <asp:Panel ID="RestrictPanel" runat="server">
             <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
-        </asp:Panel>
 
         <hr>
         <footer>

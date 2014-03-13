@@ -10,6 +10,7 @@ namespace Qnote.Pages
 {
     public partial class AllNotes : System.Web.UI.Page
     {
+        // Lazy init.
         private Service _service;
 
         private Service Service
@@ -28,7 +29,7 @@ namespace Qnote.Pages
             {
                 // Here i get all notes and put them in "qnote" then get the collection for the note, and the name for the collection.
                 // After that i throw all the info into a new QnoteCollection object and return that to the listview.
-                IEnumerable<QnoteCollection> participants = from qnote in Service.GetNotes()
+                IEnumerable<QnoteCollection> participants = from qnote in Service.GetNotes(Int32.Parse(Session["userID"].ToString()))
                                                             let collection = Service.GetCollection(qnote.NoteID)
                                                             let collectionName = Service.GetCollectionName(collection.CollectionNameID)
                                                             select new QnoteCollection
@@ -43,8 +44,9 @@ namespace Qnote.Pages
             }
             catch (Exception)
             {
-                // TODO Implement UI error-handling.
-                throw new ApplicationException("Inga anteckningar att lista.");
+                // If by some reason my FormView fails to see there are no posts, ModelState saves the day!
+                ModelState.AddModelError("", "Ett fel inträffade då anteckningar skulle hämtas, kanske finns det inga?");
+                return null;
             }  
         }
     }

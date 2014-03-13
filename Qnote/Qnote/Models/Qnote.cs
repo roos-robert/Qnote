@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Qnote.Models
 {
+    // This class represents the Note table in the database, to avoid name conflicts (since i named a row the same as the table) the class is named Qnote.
     public class Qnote
     {
         public int NoteID { get; set; }

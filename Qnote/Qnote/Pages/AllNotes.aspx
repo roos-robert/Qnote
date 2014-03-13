@@ -40,7 +40,7 @@
         </ItemTemplate>
         <EmptyDataTemplate>
             <%-- If there are no notes saved --%>
-            <p>Du har inte en enda anteckning sparad, skriv en nu!</p>
+            <p>Du har inte en enda anteckning sparad, <a href='<%$ RouteUrl:routename=NewNote %>' id="NewNoteLink" runat="server">skriv en nu!</a></p>
         </EmptyDataTemplate>                       
     </asp:ListView>
 </asp:Content>

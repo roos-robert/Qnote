@@ -10,6 +10,7 @@ namespace Qnote.Pages
 {
     public partial class NewNote : System.Web.UI.Page
     {
+        // Lazy init.
         private Service _service;
 
         private Service Service
@@ -30,6 +31,7 @@ namespace Qnote.Pages
             }
             catch (Exception)
             {
+                // If something goes wrong, ModelState saves the day by presenting a error that the user can DO NOTHING ABOUT muahaha.
                 ModelState.AddModelError("", "Ett fel inträffade då collections skulle hämtas");
                 return null;
             }          
@@ -41,6 +43,9 @@ namespace Qnote.Pages
             {
                 try
                 {
+                    // Adds the UserID to the object
+                    qnoteCollectionID.UserID = Int32.Parse(Session["userID"].ToString());
+
                     // Saves the note.
                     Service.CreateNoteAndCollection(qnoteCollectionID);
 
@@ -52,6 +57,7 @@ namespace Qnote.Pages
                 }
                 catch (Exception)
                 {
+                    // If something goes wrong, ModelState saves the day by presenting a error that the user can DO NOTHING ABOUT muahaha.
                     ModelState.AddModelError("", "Ett fel inträffade då anteckningen skulle läggas till.");
                 }                   
             }

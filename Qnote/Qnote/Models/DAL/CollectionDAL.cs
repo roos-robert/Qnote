@@ -7,6 +7,7 @@ using System.Web;
 
 namespace Qnote.Models.DAL
 {
+    // This DAL handles retrieving/handling data related to the Collection table.
     public class CollectionDAL : DALBase
     {
         // Retrives what collection a note belongs to.

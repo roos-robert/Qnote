@@ -11,14 +11,14 @@ namespace Qnote.Models.DAL
     {
         private static string connectionString;
 
-        // Skapar och returnerar en referens till ett anslutningsobjekt.
+        // Creates and returns a reference to a connection object.
         protected SqlConnection CreateConnection()
         {
             SqlConnection conn = new SqlConnection(connectionString);
             return conn;
         }
 
-        // Initierar connectionString genom att hämta anslutningssträngen från Web.config.
+        // Inits connectionString by retrieving the connection string from Web.config.
         static DALBase()
         {
             connectionString = WebConfigurationManager.ConnectionStrings["QnoteConnectionString"].ConnectionString;

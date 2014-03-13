@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Qnote.Models
 {
+    // This class represents how a joined table of the tables Note, Collection and CollectionNameID looks like.
     public class QnoteCollectionID
     {
         // Validation with data annotations of text beeing entered.

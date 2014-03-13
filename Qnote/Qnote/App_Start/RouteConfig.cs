@@ -6,6 +6,7 @@ using System.Web.Routing;
 
 namespace Qnote
 {
+    // Class for handling all my route configurations, making sure to keep the adressbar tidy and readable.
     public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)

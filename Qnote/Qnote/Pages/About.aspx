@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Om Qnote" Language="C#" MasterPageFile="~/Pages/Shared/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Qnote.Pages.About" %>
+﻿<%@ Page Title="Om Qnote" Language="C#" MasterPageFile="~/Pages/Shared/SiteOpen.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Qnote.Pages.About" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="description" content="Qnote är en webbapplikation för att snabbt spara anteckningar i molnet.">

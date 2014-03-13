@@ -10,6 +10,7 @@ namespace Qnote.Pages
 {
     public partial class DeleteNote : System.Web.UI.Page
     {
+        // Lazy init.
         private Service _service;
 
         private Service Service
@@ -19,6 +20,7 @@ namespace Qnote.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Nicley presents the header of the note in the jumbotron.
             try
             {
                 HeaderLitteral.Text = RouteData.Values["header"].ToString();
@@ -34,7 +36,7 @@ namespace Qnote.Pages
         {
             try
             {
-                // Raderar kontakten samt presenterar ett meddelande om att allt lyckats.
+                // Deletes the note, also presents a message to the user that all went well.
                 Service.DeleteNote(Int32.Parse(RouteData.Values["id"].ToString()));
                 Session["Success"] = "Anteckningen har raderats!";
                 Response.RedirectToRoute("AllNotes");
@@ -42,12 +44,14 @@ namespace Qnote.Pages
             }
             catch (Exception)
             {
+                // Huh? My code won't work? This will never happen, but just in case, ModelState saves the day and presents a error message to the user.
                 ModelState.AddModelError(String.Empty, "Ett fel inträffade då anteckningen skulle raderas.");
             }
         }
 
         protected void LinkButtonCancel_Click(object sender, EventArgs e)
         {
+            // The user changes his or her mind, clicks cancel and is sent back to the list of all the notes.
             Response.RedirectToRoute("AllNotes");
             Context.ApplicationInstance.CompleteRequest();
         }

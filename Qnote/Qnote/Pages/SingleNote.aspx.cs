@@ -60,8 +60,9 @@ namespace Qnote.Pages
             }
             catch(Exception)
             {
-                // TODO Implement UI error-handling.
-                throw new ApplicationException("Anteckningen finns inte.");
+                // If something goes wrong, ModelState saves the day by presenting a error that the user can DO NOTHING ABOUT muahaha.
+                ModelState.AddModelError("", "Anteckningen finns inte.");
+                return null;
             }         
         }
 

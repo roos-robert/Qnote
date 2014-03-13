@@ -14,16 +14,25 @@ namespace Qnote.Pages
             if (Session["userOnline"] != null)
             {
                 LoginPanel.Visible = false;
+                LogoutPanel.Visible = true;
             }
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            // The dummy form sets the sessions for trying the demo, the demo person is Ellen Nu = userID 2.
+            // From the dummy-form i here set the session to one of the three test users.
             Session["userOnline"] = true;
-            Session["userID"] = 2;
+            Session["userID"] = DDLUser.SelectedValue;
             Session["Success"] = "Du har nu loggat in!";
 
+            Response.RedirectToRoute("AllNotes");
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            // If the user logs out, the session is cleared.
+            Session.Abandon();
             Response.RedirectToRoute("Default");
             Context.ApplicationInstance.CompleteRequest();
         }

@@ -6,6 +6,8 @@ using System.Web;
 
 namespace Qnote.Models
 {
+    // This class represents the databasetable CollectionNameID. Please note that the field "CollectionNameText" is used instead of the db-field-name "Collection". This to avoid
+    // Confusing the field with the class collection.
     public class CollectionName
     {
         public int CollectionNameID { get; set; }

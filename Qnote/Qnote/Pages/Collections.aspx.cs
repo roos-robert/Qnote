@@ -11,7 +11,7 @@ namespace Qnote.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Get out, nothing to see here!
         }
     }
 }

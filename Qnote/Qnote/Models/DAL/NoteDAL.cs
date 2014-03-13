@@ -7,10 +7,12 @@ using System.Web;
 
 namespace Qnote.Models.DAL
 {
+    // This DAL handles retrieving/handling data related to the Note table. With the exception that a Note ALWAYS when created/updated is related to the Collection/CollectionNameID table.
+    // Therefore methods for that is included here and not in a separate DAL. Makes life easier.
     public class NoteDAL : DALBase
     {
         // Collection for looping out references to the Qnote-object (Quick-notes, gets all for a specific user).
-        public IEnumerable<Qnote> GetNotes()
+        public IEnumerable<Qnote> GetNotes(int UserID)
         {
             using (var conn = CreateConnection())
             {
@@ -20,8 +22,7 @@ namespace Qnote.Models.DAL
 
                     var cmd = new SqlCommand("app.usp_GetNotes", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    // Note, this parameter should be connected to a session, this is only for testing.
-                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = 1;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = UserID;
 
                     conn.Open();
 
@@ -115,20 +116,14 @@ namespace Qnote.Models.DAL
                     var cmd = new SqlCommand("app.usp_CreateNoteAndCollection", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Here im creating the parameters that will be used.
+                    // Here I'm creating the parameters that will be used.
                     cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnoteCollectionID.Header;
                     cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnoteCollectionID.Note;
                     cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnoteCollectionID.UserID;
                     cmd.Parameters.Add("@CollectionNameID", SqlDbType.Int, 4).Value = qnoteCollectionID.CollectionNameID;
 
-                    // This parameter retrieves the ID of the post just inserted.
-                    //cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
-
                     conn.Open();
                     cmd.ExecuteNonQuery();
-
-                    // Retrives the NoteID and adds it to the object.
-                    //qnote.NoteID = (int)cmd.Parameters["@ContactID"].Value;
                 }
                 catch
                 {

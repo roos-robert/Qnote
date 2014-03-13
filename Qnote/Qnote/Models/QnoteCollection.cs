@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Qnote.Models
 {
+    // This class represents how a joined table of the tables note and collection looks like.
     public class QnoteCollection
     {
         public int NoteID { get; set; }
