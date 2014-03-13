@@ -144,14 +144,14 @@ namespace Qnote.Models.DAL
             {
                 try
                 {
-                    var cmd = new SqlCommand("app.usp_UpdateNote", conn);
+                    var cmd = new SqlCommand("app.usp_UpdateNoteAndCollection", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Here im creating the parameters that will be used.                   
                     cmd.Parameters.Add("@Header", SqlDbType.VarChar, 60).Value = qnote.Header;
                     cmd.Parameters.Add("@Note", SqlDbType.VarChar, 2000).Value = qnote.Note;
                     cmd.Parameters.Add("@NoteID", SqlDbType.Int, 4).Value = qnote.NoteID;
-                    //cmd.Parameters.Add("@UserID", SqlDbType.Int, 4).Value = qnote.UserID;
+                    cmd.Parameters.Add("@CollectionNameID", SqlDbType.Int, 4).Value = qnote.CollectionNameID;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

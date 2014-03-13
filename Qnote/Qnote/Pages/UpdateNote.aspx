@@ -10,6 +10,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <asp:ValidationSummary runat="server" CssClass="validation-summary-error" />
 
     <asp:FormView ID="QnoteUpdateFormView" runat="server" DefaultMode="Edit" ItemType="Qnote.Models.QnoteCollectionID" 
         SelectMethod="QnoteListView_GetData" UpdateMethod="QnoteListView_UpdateItem" DataKeyNames="NoteID" RenderOuterTable="false">

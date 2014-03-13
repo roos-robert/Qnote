@@ -75,6 +75,10 @@ namespace Qnote.Pages
                     }
                     else 
                     {
+                        DropDownList ddlCollection = QnoteUpdateFormView.FindControl("DropDownListCollection") as DropDownList;
+                        qnoteCollectionID.CollectionNameID = Int32.Parse(ddlCollection.SelectedValue.ToString());
+                        
+                        
                         // Updates the note, and shows that all worked out!
                         Service.CreateNoteAndCollection(qnoteCollectionID);
                         Session["Success"] = "Anteckningen har uppdaterats!";
