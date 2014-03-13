@@ -79,6 +79,7 @@
         <Scripts>
             <asp:ScriptReference Path="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
             <asp:ScriptReference Path="~/js/bootstrap.min.js" />
+            <asp:ScriptReference Path="~/js/scripts.js" />
         </Scripts>
     </asp:ScriptManager>  
     </form>
