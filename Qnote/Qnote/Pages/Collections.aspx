@@ -6,9 +6,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="JumbotronContentPlaceHolder" runat="server">
     <h1>Samlingar</h1>
-    <p>Hantera tillgängliga samlingar för medlemmar.</p>
+    <p>Hantera tillgängliga samlingar för medlemmar</p>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <p>Här kan samlingar hanteras som skall finnas tillgänliga för medlemmar att använda sig utav.</p>
+    <p>Under konstruktion.</p>
 </asp:Content>

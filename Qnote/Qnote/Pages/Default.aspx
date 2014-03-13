@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="JumbotronContentPlaceHolder" runat="server">
     <h1>Välkommen!</h1>
-    <p>Qnote hjälper dig genom att spara alla dina anteckningar direkt i molnet.</p>
+    <p>Qnote hjälper dig genom att spara alla dina anteckningar direkt i molnet</p>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="LoginContentPlaceHolder" runat="server">

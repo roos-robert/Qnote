@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="JumbotronContentPlaceHolder" runat="server">
     <h1>Ny anteckning</h1>
-    <p>Skriv din anteckning nedan.</p>
+    <p>Skriv en ny anteckning nedan</p>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
