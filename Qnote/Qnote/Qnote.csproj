@@ -67,12 +67,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Pages\About.aspx" />
-    <Content Include="Pages\AllNotes.aspx" />
-    <Content Include="Pages\Collections.aspx" />
+    <Content Include="Pages\Notes\AllNotes.aspx" />
+    <Content Include="Pages\Collections\Collections.aspx" />
     <Content Include="Pages\Default.aspx" />
-    <Content Include="Pages\DeleteCollection.aspx" />
-    <Content Include="Pages\DeleteNote.aspx" />
-    <Content Include="Pages\NewNote.aspx" />
+    <Content Include="Pages\Collections\DeleteCollection.aspx" />
+    <Content Include="Pages\Notes\DeleteNote.aspx" />
+    <Content Include="Pages\Notes\NewNote.aspx" />
     <Content Include="Pages\Shared\Site.Master" />
     <Content Include="Pages\Shared\SiteOpen.Master" />
     <None Include="Properties\PublishProfiles\Qnote.pubxml" />
@@ -98,8 +98,8 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\scripts.js" />
-    <Content Include="Pages\SingleNote.aspx" />
-    <Content Include="Pages\UpdateNote.aspx" />
+    <Content Include="Pages\Notes\SingleNote.aspx" />
+    <Content Include="Pages\Notes\UpdateNote.aspx" />
     <Content Include="robots.txt" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -131,18 +131,18 @@
     <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AllNotes.aspx.cs">
+    <Compile Include="Pages\Notes\AllNotes.aspx.cs">
       <DependentUpon>AllNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AllNotes.aspx.designer.cs">
+    <Compile Include="Pages\Notes\AllNotes.aspx.designer.cs">
       <DependentUpon>AllNotes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Collections.aspx.cs">
+    <Compile Include="Pages\Collections\Collections.aspx.cs">
       <DependentUpon>Collections.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Collections.aspx.designer.cs">
+    <Compile Include="Pages\Collections\Collections.aspx.designer.cs">
       <DependentUpon>Collections.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Default.aspx.cs">
@@ -152,25 +152,25 @@
     <Compile Include="Pages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DeleteCollection.aspx.cs">
+    <Compile Include="Pages\Collections\DeleteCollection.aspx.cs">
       <DependentUpon>DeleteCollection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DeleteCollection.aspx.designer.cs">
+    <Compile Include="Pages\Collections\DeleteCollection.aspx.designer.cs">
       <DependentUpon>DeleteCollection.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DeleteNote.aspx.cs">
+    <Compile Include="Pages\Notes\DeleteNote.aspx.cs">
       <DependentUpon>DeleteNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DeleteNote.aspx.designer.cs">
+    <Compile Include="Pages\Notes\DeleteNote.aspx.designer.cs">
       <DependentUpon>DeleteNote.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NewNote.aspx.cs">
+    <Compile Include="Pages\Notes\NewNote.aspx.cs">
       <DependentUpon>NewNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\NewNote.aspx.designer.cs">
+    <Compile Include="Pages\Notes\NewNote.aspx.designer.cs">
       <DependentUpon>NewNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Shared\Site.Master.cs">
@@ -187,18 +187,18 @@
     <Compile Include="Pages\Shared\SiteOpen.Master.designer.cs">
       <DependentUpon>SiteOpen.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SingleNote.aspx.cs">
+    <Compile Include="Pages\Notes\SingleNote.aspx.cs">
       <DependentUpon>SingleNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SingleNote.aspx.designer.cs">
+    <Compile Include="Pages\Notes\SingleNote.aspx.designer.cs">
       <DependentUpon>SingleNote.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\UpdateNote.aspx.cs">
+    <Compile Include="Pages\Notes\UpdateNote.aspx.cs">
       <DependentUpon>UpdateNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\UpdateNote.aspx.designer.cs">
+    <Compile Include="Pages\Notes\UpdateNote.aspx.designer.cs">
       <DependentUpon>UpdateNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,13 +12,13 @@ namespace Qnote
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.MapPageRoute("Default", "", "~/Pages/Default.aspx");
-            routes.MapPageRoute("NewNote", "notes/new", "~/Pages/NewNote.aspx");
-            routes.MapPageRoute("AllNotes", "notes/all", "~/Pages/AllNotes.aspx");
-            routes.MapPageRoute("SingleNote", "notes/{id}/{header}", "~/Pages/SingleNote.aspx");
-            routes.MapPageRoute("UpdateNote", "edit/notes/{id}", "~/Pages/UpdateNote.aspx");
-            routes.MapPageRoute("DeleteNote", "notes/delete/{id}/{header}", "~/Pages/DeleteNote.aspx");
-            routes.MapPageRoute("Collections", "collections", "~/Pages/Collections.aspx");
-            routes.MapPageRoute("DeleteCollection", "collections/delete/{id}/{header}", "~/Pages/DeleteCollection.aspx");
+            routes.MapPageRoute("NewNote", "notes/new", "~/Pages/Notes/NewNote.aspx");
+            routes.MapPageRoute("AllNotes", "notes/all", "~/Pages/Notes/AllNotes.aspx");
+            routes.MapPageRoute("SingleNote", "notes/{id}/{header}", "~/Pages/Notes/SingleNote.aspx");
+            routes.MapPageRoute("UpdateNote", "edit/notes/{id}", "~/Pages/Notes/UpdateNote.aspx");
+            routes.MapPageRoute("DeleteNote", "notes/delete/{id}/{header}", "~/Pages/Notes/DeleteNote.aspx");
+            routes.MapPageRoute("Collections", "collections", "~/Pages/Collections/Collections.aspx");
+            routes.MapPageRoute("DeleteCollection", "collections/delete/{id}/{header}", "~/Pages/Collections/DeleteCollection.aspx");
             routes.MapPageRoute("About", "about", "~/Pages/About.aspx");
         }
     }
