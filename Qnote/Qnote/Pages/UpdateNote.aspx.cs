@@ -57,7 +57,8 @@ namespace Qnote.Pages
             }
             catch (Exception)
             {
-                ModelState.AddModelError("", "Ett fel inträffade då collections skulle hämtas");
+                ModelState.AddModelError("", "Ett fel inträffade då samlingar skulle hämtas, försök uppdatera anteckningen lite senare!");
+                QnoteUpdateFormView.Visible = false;
                 return null;
             }
         }
@@ -89,7 +90,7 @@ namespace Qnote.Pages
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Ett fel inträffade då anteckningen skulle uppdateras!");
+                    ModelState.AddModelError("", "Ett fel inträffade då anteckningen skulle uppdateras, försök igen om en stund!");
                 }
             }
         }

@@ -45,7 +45,8 @@ namespace Qnote.Pages
             catch (Exception)
             {
                 // If by some reason my FormView fails to see there are no posts, ModelState saves the day!
-                ModelState.AddModelError("", "Ett fel inträffade då anteckningar skulle hämtas, kanske finns det inga?");
+                ModelState.AddModelError("", "Ett fel inträffade då anteckningar skulle hämtas, försök igen om en stund!");
+                QnoteListView.Visible = false;
                 return null;
             }  
         }

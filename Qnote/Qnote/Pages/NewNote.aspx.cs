@@ -32,7 +32,8 @@ namespace Qnote.Pages
             catch (Exception)
             {
                 // If something goes wrong, ModelState saves the day by presenting a error that the user can DO NOTHING ABOUT muahaha.
-                ModelState.AddModelError("", "Ett fel inträffade då collections skulle hämtas");
+                ModelState.AddModelError("", "Ett fel inträffade då samlingar skulle hämtas, försök skriva en ny anteckning om en stund!");
+                FormViewNewNote.Visible = false;
                 return null;
             }          
         }
@@ -58,7 +59,7 @@ namespace Qnote.Pages
                 catch (Exception)
                 {
                     // If something goes wrong, ModelState saves the day by presenting a error that the user can DO NOTHING ABOUT muahaha.
-                    ModelState.AddModelError("", "Ett fel inträffade då anteckningen skulle läggas till.");
+                    ModelState.AddModelError("", "Ett fel inträffade då anteckningen skulle läggas till, försök igen om en stund!");
                 }                   
             }
         }
