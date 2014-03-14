@@ -82,6 +82,27 @@ namespace Qnote.Models
             get { return _collectionNameDAL ?? (_collectionNameDAL = new CollectionNameDAL()); }
         }
 
+        // Creates or updates a collection(name).
+        public void CreateCollectionName(CollectionName collectionName)
+        {
+            ICollection<ValidationResult> validationResults;
+            if (!collectionName.Validate(out validationResults))
+            {
+                var ex = new ValidationException("The CollectionName object did not pass the data validation!");
+                ex.Data.Add("ValidationResults", validationResults);
+                throw ex;
+            }
+
+            if (collectionName.CollectionNameID == 0)
+            {
+                CollectionNameDAL.CreateCollectionName(collectionName);
+            }
+            else
+            {
+                //CollectionNameDAL.UpdateCollectionName(collectionName);
+            }
+        }
+
         // Gets specific collection(name)
         public CollectionName GetCollectionName(int CollectionNameID)
         {

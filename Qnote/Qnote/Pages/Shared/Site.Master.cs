@@ -13,9 +13,9 @@ namespace Qnote.Pages.Shared
         {
             if (Session["userOnline"] == null)
             {
-                RestrictPanel.Visible = false;
-                ErrorLiteral.Text = "Du måste logga in för att testa Qnote!";
-                errorNotif.Visible = true;
+                //RestrictPanel.Visible = false;
+                //ErrorLiteral.Text = "Du måste logga in för att testa Qnote!";
+                //errorNotif.Visible = true;
             }
 
             if (Session["Success"] != null)

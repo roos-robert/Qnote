@@ -10,7 +10,30 @@ namespace Qnote.Models.DAL
     // This DAL handles retrieving/handling data related to the CollectionName table. Full CRUD.
     public class CollectionNameDAL : DALBase
     {
-        // Retrives all collectionnames
+        // Creates a new collection(name).
+        public void CreateCollectionName(CollectionName collectionName)
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("app.usp_CreateCollectionName", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Here I'm creating the parameters that will be used.
+                    cmd.Parameters.Add("@Collection", SqlDbType.VarChar, 60).Value = collectionName.CollectionNameText;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to add a collection to the database.");
+                }
+            }
+        }
+
+        // Retrives all collectionnames.
         public IEnumerable<CollectionName> GetCollectionNames()
         {
             using (var conn = CreateConnection())
@@ -92,7 +115,7 @@ namespace Qnote.Models.DAL
             }
         }
 
-        // Deletes a collection(name)
+        // Deletes a collection(name).
         public void DeleteCollectionName(int CollectionNameID)
         {
             using (var conn = CreateConnection())

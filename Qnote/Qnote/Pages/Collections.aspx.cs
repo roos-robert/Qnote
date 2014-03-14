@@ -23,6 +23,7 @@ namespace Qnote.Pages
             // Get out, nothing to see here!
         }
 
+        // Retrieves all collections from the database.
         public IEnumerable<CollectionName> QnoteListView_GetData()
         {
             try
@@ -35,6 +36,25 @@ namespace Qnote.Pages
                 ModelState.AddModelError("", "Ett fel inträffade när samlingarna skulle hämtas, försök om en stund igen!");
                 QnoteListView.Visible = false;
                 return null;
+            }
+        }
+
+        // Method for adding a new collection to the database.
+        public void QnoteListView_InsertItem(CollectionName collectionName)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Service.CreateCollectionName(collectionName);
+                    Session["Success"] = "Samlingen har skapats!";
+                    Response.RedirectToRoute("Collections");
+                    Context.ApplicationInstance.CompleteRequest();
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Ett fel inträffade då samlingen skulle läggas till, försök igen om en stund!");
+                }             
             }
         }
     }
