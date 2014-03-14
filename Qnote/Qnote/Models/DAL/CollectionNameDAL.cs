@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Qnote.Models.DAL
 {
-    // This DAL handles retrieving/handling data related to the CollectionName table.
+    // This DAL handles retrieving/handling data related to the CollectionName table. Full CRUD.
     public class CollectionNameDAL : DALBase
     {
         // Retrives all collectionnames
@@ -88,6 +88,28 @@ namespace Qnote.Models.DAL
                 catch
                 {
                     throw new ApplicationException("An error occured when trying to access and get data from database.");
+                }
+            }
+        }
+
+        // Deletes a collection(name)
+        public void DeleteCollectionName(int CollectionNameID)
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("app.usp_DeleteCollectionName", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@CollectionNameID", SqlDbType.Int, 4).Value = CollectionNameID;
+
+                    conn.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to remove data from the database.");
                 }
             }
         }

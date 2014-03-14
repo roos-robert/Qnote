@@ -36,8 +36,9 @@ namespace Qnote.Pages
             try
             {
                 // Deletes the collection, also presents a message to the user that all went well.
-                //Service.DeleteCollection(Int32.Parse(RouteData.Values["id"].ToString()));
-                Session["Success"] = "Samlingen kunde inte raderas då det finns anteckningar som tillhör den ännu!";
+                // TODO Activate delete functionality for collections again.
+                //Service.DeleteCollectionName(Int32.Parse(RouteData.Values["id"].ToString()));
+                Session["Success"] = "Samlingen var tom och kunde raderas utan problem!";
                 Response.RedirectToRoute("Collections");
                 Context.ApplicationInstance.CompleteRequest();
             }

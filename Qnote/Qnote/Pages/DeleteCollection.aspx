@@ -9,6 +9,8 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="validation-summary-error" />
+
     <p>Är du helt säker på att du vill radera denna samling?</p>
     <p>
         <asp:Button ID="DeleteButton" runat="server" Text="Ja, jag är säker!" class="btn btn-success" OnClick="DeleteButton_Click" />&nbsp;&nbsp;

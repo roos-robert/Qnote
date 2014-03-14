@@ -73,7 +73,7 @@ namespace Qnote.Models
         }
         #endregion
 
-        #region CollectionName R
+        #region CollectionName CRUD
 
         // Init of the CollectionNameDAL
         private CollectionNameDAL _collectionNameDAL;
@@ -82,7 +82,7 @@ namespace Qnote.Models
             get { return _collectionNameDAL ?? (_collectionNameDAL = new CollectionNameDAL()); }
         }
 
-        // Gets collection name
+        // Gets specific collection(name)
         public CollectionName GetCollectionName(int CollectionNameID)
         {
             return CollectionNameDAL.GetCollectionNameByID(CollectionNameID);
@@ -94,6 +94,11 @@ namespace Qnote.Models
             return CollectionNameDAL.GetCollectionNames();
         }
 
+        // Deletes specific collection(name).
+        public void DeleteCollectionName(int CollectionNameID)
+        {
+            CollectionNameDAL.DeleteCollectionName(CollectionNameID);
+        }
         #endregion
     }
 }
