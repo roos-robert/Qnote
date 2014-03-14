@@ -99,7 +99,7 @@ namespace Qnote.Models
             }
             else
             {
-                //CollectionNameDAL.UpdateCollectionName(collectionName);
+                CollectionNameDAL.UpdateCollectionName(collectionName);
             }
         }
 

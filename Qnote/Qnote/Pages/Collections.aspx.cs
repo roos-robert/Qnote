@@ -57,5 +57,32 @@ namespace Qnote.Pages
                 }             
             }
         }
+
+        // Method for updating a existing collection(name).
+        public void QnoteListView_UpdateItem(CollectionName collectionName)
+        {
+            try
+            {
+                var collectionNameExists = Service.GetCollectionName(collectionName.CollectionNameID);
+                if (collectionNameExists == null)
+                {
+                    // The item wasn't found
+                    ModelState.AddModelError("", String.Format("Item with id {0} was not found", collectionName));
+                    return;
+                }
+
+                if (TryUpdateModel(collectionName))
+                {
+                    // Uppdaterar kontakten samt presenterar ett meddelande om att allt lyckats.
+                    Service.CreateCollectionName(collectionName);
+                    Session["Success"] = "Samlingen har uppdaterats!";
+                    Response.Redirect(Request.UrlReferrer.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Ett fel inträffade då kontakten skulle uppdateras.");
+            }
+        }
     }
 }

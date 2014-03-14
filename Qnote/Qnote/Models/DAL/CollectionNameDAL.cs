@@ -115,6 +115,30 @@ namespace Qnote.Models.DAL
             }
         }
 
+        // Updates a existing collection(name).
+        public void UpdateCollectionName(CollectionName collectionName)
+        {
+            using (var conn = CreateConnection())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("app.usp_UpdateCollectionName", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Here I'm creating the parameters that will be used.
+                    cmd.Parameters.Add("@CollectionNameID", SqlDbType.Int, 4).Value = collectionName.CollectionNameID;
+                    cmd.Parameters.Add("@Collection", SqlDbType.VarChar, 60).Value = collectionName.CollectionNameText;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw new ApplicationException("An error occured when trying to update a collection in the database.");
+                }
+            }
+        }
+
         // Deletes a collection(name).
         public void DeleteCollectionName(int CollectionNameID)
         {
