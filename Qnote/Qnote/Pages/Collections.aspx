@@ -10,6 +10,21 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <p>Här kan samlingar hanteras som skall finnas tillgänliga för medlemmar att använda sig utav.</p>
-    <p>Under konstruktion.</p>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="validation-summary-error" />
+    <asp:ListView ID="QnoteListView" runat="server" ItemType="Qnote.Models.CollectionName" SelectMethod="QnoteListView_GetData" DataKeyNames="CollectionNameID">
+        <LayoutTemplate>     
+            <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
+        </LayoutTemplate>
+        <ItemTemplate>
+            <%-- Template for each row in the database. --%>
+            <h4><%#: Item.CollectionNameText %></h4>
+            <asp:HyperLink runat="server" NavigateUrl='<%# GetRouteUrl("DeleteCollection", new { id = Item.CollectionNameID, header = Item.CollectionNameText })  %>' Text="Radera" />
+            <p>&nbsp;</p>    
+        </ItemTemplate>
+        <EmptyDataTemplate>
+            <%-- If there are no collections in the database --%>
+            <p>Du har inte en enda samling i databasen</p>
+        </EmptyDataTemplate>                       
+    </asp:ListView>
+
 </asp:Content>

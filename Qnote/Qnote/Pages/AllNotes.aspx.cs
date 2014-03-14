@@ -29,7 +29,7 @@ namespace Qnote.Pages
             {
                 // Here i get all notes and put them in "qnote" then get the collection for the note, and the name for the collection.
                 // After that i throw all the info into a new QnoteCollection object and return that to the listview.
-                IEnumerable<QnoteCollection> participants = from qnote in Service.GetNotes(Int32.Parse(Session["userID"].ToString()))
+                IEnumerable<QnoteCollection> notes = from qnote in Service.GetNotes(Int32.Parse(Session["userID"].ToString()))
                                                             let collection = Service.GetCollection(qnote.NoteID)
                                                             let collectionName = Service.GetCollectionName(collection.CollectionNameID)
                                                             select new QnoteCollection
@@ -40,7 +40,7 @@ namespace Qnote.Pages
                                                                 Date = qnote.Date,
                                                                 CollectionNameText = collectionName.CollectionNameText
                                                             }; 
-                return participants;
+                return notes;
             }
             catch (Exception)
             {

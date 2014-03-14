@@ -70,6 +70,7 @@
     <Content Include="Pages\AllNotes.aspx" />
     <Content Include="Pages\Collections.aspx" />
     <Content Include="Pages\Default.aspx" />
+    <Content Include="Pages\DeleteCollection.aspx" />
     <Content Include="Pages\DeleteNote.aspx" />
     <Content Include="Pages\NewNote.aspx" />
     <Content Include="Pages\Shared\Site.Master" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="Pages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeleteCollection.aspx.cs">
+      <DependentUpon>DeleteCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DeleteCollection.aspx.designer.cs">
+      <DependentUpon>DeleteCollection.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DeleteNote.aspx.cs">
       <DependentUpon>DeleteNote.aspx</DependentUpon>
