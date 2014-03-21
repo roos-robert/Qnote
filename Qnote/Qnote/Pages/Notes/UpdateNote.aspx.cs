@@ -22,23 +22,33 @@ namespace Qnote.Pages
 
         }
 
-        public IEnumerable<QnoteCollectionID> QnoteListView_GetData()
+        public QnoteCollection QnoteListView_GetData()
         {
             try
             {
-                // Here i get all notes and put them in "qnote" then get the collection for the note, and the name for the collection.
-                // After that i throw all the info into a new QnoteCollection object and return that to the listview.
-                IEnumerable<QnoteCollectionID> participants = from qnote in Service.GetNotes(Int32.Parse(Session["userID"].ToString()))
-                                                            let collection = Service.GetCollection(qnote.NoteID)
-                                                            let collectionName = Service.GetCollectionName(collection.CollectionNameID)
-                                                            select new QnoteCollectionID
-                                                            {
-                                                                NoteID = qnote.NoteID,
-                                                                Header = qnote.Header,
-                                                                Note = qnote.Note,
-                                                                //CollectionNameText = collectionName.CollectionNameText
-                                                            };
-                return participants;
+                // First off i get all the data for the requested note.
+                var note = Service.GetNote(Int32.Parse(RouteData.Values["id"].ToString()));
+                if (note != null)
+                {
+                    // If the note exists i get all the data from the collections table for it and save it.
+                    var collection = Service.GetCollection(note.NoteID);
+                    // Then i look up the name for the collection the note belongs to and save it.
+                    var collectionName = Service.GetCollectionName(collection.CollectionNameID);
+
+                    // Last i put all the pieces together into a new object that i return back to the list view.
+                    QnoteCollection _collection = new QnoteCollection();
+                    _collection.NoteID = note.NoteID;
+                    _collection.Header = note.Header;
+                    _collection.Note = note.Note;
+                    _collection.Date = note.Date;
+                    _collection.CollectionNameText = collectionName.CollectionNameText;
+
+                    return _collection;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {
